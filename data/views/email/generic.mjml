@@ -1,0 +1,98 @@
+<mjml>
+  <mj-head>
+    <mj-title>{{emailTitle}}</mj-title>
+    <mj-preview>{{emailPreHeaderText}}</mj-preview>
+    <mj-attributes>
+      <mj-font name="Montserrat" href="https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap" />
+      <mj-font name="Cormorant Garamond" href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,700&display=swap" />
+      <mj-all font-family="'Montserrat', Helvetica, Arial, sans-serif"></mj-all>
+      <mj-text font-weight="400" font-size="19px" color="#363443" line-height="24px" font-family="'Cormorant Garamond', serif"></mj-text>
+    </mj-attributes>
+    <mj-style> @media screen and (max-width: 600px) { 
+      .disapear { 
+          display: none
+      } 
+      } </mj-style>
+    <mj-style inline="inline"> .body-section { 
+      -webkit-box-shadow: 1px 4px 11px 0px rgba(0, 0, 0, 0.15); 
+      -moz-box-shadow: 1px 4px 11px 0px rgba(0, 0, 0, 0.15); 
+      box-shadow: 1px 4px 11px 0px rgba(0, 0, 0, 0.15); 
+      } </mj-style>
+    <mj-style inline="inline"> .text-link { color: black } </mj-style>
+    <mj-style inline="inline"> .footer-link { color: #888888 } </mj-style>
+    <mj-style> .body-text div { white-space: pre-wrap;!important; } </mj-style>
+    <mj-style inline="inline"> .catch-phrase div { 
+      color: white!important; 
+      font-style: italic;
+      font-size: 22px!important;
+      letter-spacing: 1px;
+      } </mj-style>
+  </mj-head>
+  <mj-body background-color="#E7E7E7" width="600px">
+    <mj-section  css-class="body-section" full-width="full-width" background-color="#040B4F" background-url="https://res.cloudinary.com/hnmyay7bm/image/upload/v1573773101/alicialonso-api/silk_ol_bg_uasc8r.jpg" background-size="100%" padding-bottom="0">
+      <mj-column width="100%">
+        <mj-image src="https://res.cloudinary.com/hnmyay7bm/image/upload/v1573773575/alicialonso-api/fundacion_logo_hor_dkxe2v.png" alt="" align="center" width="350px" />
+        
+        <mj-text align="center" css-class="catch-phrase">{{catchPrase}}</mj-text>
+      <mj-spacer height="30px" />  
+      </mj-column>
+    </mj-section>
+    <mj-section css-class="disapear"><mj-column></mj-column></mj-section> 
+    
+    <mj-wrapper padding-top="0" padding-bottom="0" css-class="body-section">
+      <mj-section background-color="#ffffff" padding-left="15px" padding-right="15px">
+        <mj-column width="100%">
+          <mj-text color="#212b35" font-weight="bold" font-size="24px"> {{emailHeader}} </mj-text>
+          <mj-text css-class="body-text">{{emailBody}}</mj-text>
+          <mj-spacer height="40px" />
+          <mj-button background-color="#6F0608" align="center" color="#ffffff" font-size="17px" font-weight="bold" href="{{buttonLink}}" width="300px" >{{buttonCaption}}</mj-button>
+          <mj-spacer height="40px" />
+          <mj-text css-class="body-text">{{afterActionText}}</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#ffffff" padding-left="15px" padding-right="15px" padding-top="0">
+        <mj-column width="100%">
+          <mj-divider border-color="#DFE3E8" border-width="1px" />
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#ffffff" padding="0 15px 0 15px">
+        <mj-column width="100%">
+          <mj-text color="#637381" font-size="14px" text-transform="uppercase" letter-spacing="1px" font-weight="bold" >Fundación Alicia Alonso</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#ffffff" padding-left="15px" padding-right="15px">
+        <mj-column width="50%">
+          <mj-text color="#637381" css-class="body-text" font-size="14px" padding-top="0">{{contactAddress}}</mj-text>
+        </mj-column>
+        <mj-column width="50%">
+          <mj-text color="#637381"  css-class="body-text"  font-size="14px" padding-top="0">{{contactDetails}}</mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+    <mj-wrapper full-width="full-width">
+      <mj-section>
+        <mj-column width="100%" padding="0">
+          <mj-social font-size="15px" icon-size="30px" mode="horizontal" padding="0" align="center">
+            <mj-social-element name="facebook" href="{{facebookLink}}" background-color="#A1A0A0"> </mj-social-element>
+            <mj-social-element name="google" href="{{googleLink}}" background-color="#A1A0A0"> </mj-social-element>
+            <mj-social-element name="twitter" href="{{twitterLink}}" background-color="#A1A0A0"> </mj-social-element>
+            <mj-social-element name="linkedin" href="{{lindeinLink}}" background-color="#A1A0A0"> </mj-social-element>
+            <mj-social-element name="youtube" href="{{youtubeLink}}" background-color="#A1A0A0"> </mj-social-element>
+            <mj-social-element name="instagram" href="{{instagramLink}}" background-color="#A1A0A0"> </mj-social-element>
+          </mj-social>
+          <mj-text font-size="11px" font-weight="bold" align="center"><a class="footer-link" href="{{browserViewLink}}">ver este email en el explorador</a></mj-text>
+          <mj-text color="#445566" font-size="11px" align="center" line-height="16px">{{disclaimerText}}</mj-text>
+          <mj-text color="#445566"
+            font-size="11px" align="center" line-height="16px"> &copy; 2019 Fundación Alicia Alonso, Reservados todos los derechos.</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section padding-top="0">
+        <mj-group>
+          <mj-column width="100%" padding-right="0">
+            <mj-text color="#445566" font-size="11px" align="center" line-height="16px" font-weight="bold"> <a class="footer-link" href="{{privacyLink}}">Privacy</a>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<a class="footer-link" href="{{unsubscribeLink}}">Unsubscribe</a> </mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>

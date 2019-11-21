@@ -2,7 +2,7 @@
 /* eslint-disable functional/no-expression-statement */
 import yargs from 'yargs'
 
-import { recursePath } from './lib/sfn'
+import { recursePath, writeFile } from './lib/sfn'
 import { traverseFiles } from './lib/traverser'
 
 const input = yargs.usage('Usage: template-typegen <pathToTemplatesFolder> <pathToOutputFolder>').argv
@@ -13,5 +13,5 @@ if (!input._[0] && !input._[1]) {
 }
 
 recursePath(input._[0]).then(r => {
-    console.log(traverseFiles(r))
+    writeFile(input._[1], traverseFiles(r))
 })

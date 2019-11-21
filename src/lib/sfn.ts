@@ -11,9 +11,7 @@ import recursive from 'recursive-readdir'
  * @returns {Promise<readonly string[]>}
  */
 export const recursePath = async (dirPath: string): Promise<readonly string[]> => {
-    const directoryPath = path.join(process.cwd(), dirPath)
-    console.log(directoryPath)
-    return await recursive(directoryPath, ['*.!(hbs|mjml)'])
+    return await recursive(path.join(process.cwd(), dirPath), ['*.!(hbs|mjml)'])
 }
 
 /**
@@ -22,7 +20,7 @@ export const recursePath = async (dirPath: string): Promise<readonly string[]> =
  * @param {string} data the string to write
  * @returns {boolean}
  */
-export const writeFile = (path: string, data: string): boolean => {
-    fs.writeFileSync(path, data)
+export const writeFile = (dirPath: string, data: string): boolean => {
+    fs.writeFileSync(path.join(process.cwd(), dirPath), data)
     return true
 }

@@ -10,4 +10,4 @@ export declare const recursePath: (dirPath: string) => Promise<readonly string[]
  * @param {string} data the string to write
  * @returns {boolean}
  */
-export declare const writeFile: (path: string, data: string) => boolean;
+export declare const writeFile: (dirPath: string, data: string) => boolean;

@@ -42,6 +42,13 @@ export declare const uniteTypesAndBlocks: (t: readonly string[], b: readonly str
  */
 export declare const buildTypes: (...a: readonly any[]) => any;
 /**
+ * Replace regex matches in a string with the provided value
+ * @param reg regex to match and replace
+ * @param val value to replace matches
+ * @param s string to evaluate
+ */
+export declare const replaceRegex: (reg: RegExp, val: string) => (s: string) => string;
+/**
  * Takes a string array of file paths and returns an array of objects with properties of the same file name
  * whose values are all the found {{string}} transformed in string: string
  */

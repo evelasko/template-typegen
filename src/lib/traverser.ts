@@ -28,7 +28,7 @@ export const buildObject = (
  * @param {string} a the values of the interface as string: ``` 'xtype: string \n\t ytype: number \n\t ...'```
  * @returns {string}
  */
-export const buildInterface = (i: string, a: string): string => `interface ${i} {\n\t${a}\n}\n`
+export const buildInterface = (i: string, a: string): string => `type ${i} = {\n\t${a}\n}\n`
 
 /**
  * Takes a function with one parameter that returns a boolean and evaluates an array against that function to filter its values
@@ -59,15 +59,11 @@ const appends = {
 }
 
 const processTypes = R.pipe(
-    typesRejector((n: string) => n.search(/#|@|\/|\.\/|\{|log |else|this/) < 0),
+    typesRejector((n: string) => n.search(/#|@|\/|\.\/|\.|\{|log |else|this/) < 0),
     R.map(x => `${x}${appends.type}`)
 )
 
 const processBlocks = R.converge(R.concat, [
-    // R.pipe(
-    //     typesRejector((n: string) => n.search(/\/|\.\/|\{|if/) >= 0),
-    //     R.map(x => `${x} <B>`)
-    // ),
     R.pipe(
         typesRejector((n: string) => n.search(/#list |#each /) >= 0),
         R.map(x => extractMatchAndAppend(/(?<=#list |#each )(.+?)(?= |\.|}|$)/)(x, appends.array))
@@ -87,13 +83,20 @@ export const buildTypes = R.converge(
     uniteTypesAndBlocks, // join type properties and blocks
     [processTypes, processBlocks]
 )
+/**
+ * Replace regex matches in a string with the provided value
+ * @param reg regex to match and replace
+ * @param val value to replace matches
+ * @param s string to evaluate
+ */
+export const replaceRegex = (reg: RegExp, val: string) => (s: string) => s.replace(reg, val)
 
 /**
  * Takes a string array of file paths and returns an array of objects with properties of the same file name
  * whose values are all the found {{string}} transformed in string: string
  */
 export const constructData = R.converge(buildInterface, [
-    R.pipe(R.split('/'), R.last, R.split('.'), R.head), // resolve interface name from file name
+    R.pipe(R.split('/'), R.last, R.split('.'), R.head, replaceRegex(/\W+/, '')), // resolve interface name from file name
     R.pipe(
         readFile,
         R.match(/(?<=\{{2}).+?(?=\}{2})/g), // returns an array with the strings inside {{ }}

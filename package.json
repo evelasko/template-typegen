@@ -1,6 +1,6 @@
 {
   "name": "template-typegen",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Handlebars type generator for template context objects",
   "main": "bin/index.js",
   "typings": "build/main/index.d.ts",

@@ -8,6 +8,9 @@
   "bin": {
     "template-typegen": "./bin/index.js"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": "https://github.com/evelasko/template-typegen",
   "license": "MIT",
   "keywords": [
@@ -32,14 +35,14 @@
     "cov:send": "nyc report --reporter=lcov && codecov",
     "cov:check": "nyc report && nyc check-coverage --lines 100 --functions 100 --branches 100",
     "doc": "run-s doc:html && open-cli build/docs/index.html",
-    "doc:html": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --out build/docs",
-    "doc:json": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --json build/docs/typedoc.json",
+    "doc:html": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --plugin typedoc-plugin-markdown --out ./docs",
+    "doc:json": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --json ./docs/typedoc.json",
     "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
     "version": "standard-version",
     "reset": "git clean -dfx && git reset --hard && npm i",
     "clean": "trash build test",
     "prepare-release": "run-s reset test cov:check doc:html version doc:publish",
-    "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('template-typegen must be installed with Yarn: https://yarnpkg.com/')\""
+    "release": "release-it"
   },
   "scripts-info": {
     "info": "Display information about the package scripts",
@@ -60,23 +63,23 @@
   "dependencies": {
     "ramda": "^0.26.1",
     "recursive-readdir": "^2.2.2",
-    "yargs": "^15.0.1"
+    "yargs": "^15.0.2"
   },
   "devDependencies": {
     "@bitjson/npm-scripts-info": "^1.0.0",
     "@bitjson/typedoc": "^0.15.0-0",
     "@istanbuljs/nyc-config-typescript": "^0.1.3",
-    "@types/ramda": "^0.26.34",
+    "@types/ramda": "^0.26.36",
     "@types/recursive-readdir": "^2.2.0",
     "@types/yargs": "^13.0.3",
-    "@typescript-eslint/eslint-plugin": "^2.7.0",
-    "@typescript-eslint/eslint-plugin-tslint": "^2.7.0",
-    "@typescript-eslint/parser": "^2.7.0",
-    "ava": "2.2.0",
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "ava": "2.4.0",
     "codecov": "^3.5.0",
-    "cz-conventional-changelog": "^2.1.0",
+    "cz-conventional-changelog": "^3.0.2",
     "eslint": "^6.6.0",
-    "eslint-config-prettier": "^6.6.0",
+    "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-functional": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.1",
     "gh-pages": "^2.0.1",
@@ -84,12 +87,15 @@
     "nyc": "^14.1.1",
     "open-cli": "^5.0.0",
     "prettier": "^1.18.2",
+    "release-it": "^12.4.3",
     "source-map-support": "^0.5.16",
-    "standard-version": "^6.0.1",
+    "standard-version": "^7.0.1",
     "trash-cli": "^3.0.0",
     "ts-node": "^8.5.2",
     "tslint": "^5.20.1",
-    "typescript": "^3.5.3"
+    "typedoc": "^0.15.2",
+    "typedoc-plugin-markdown": "^2.2.11",
+    "typescript": "^3.7.2"
   },
   "ava": {
     "failFast": true,

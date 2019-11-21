@@ -1,0 +1,11 @@
+{
+  "npm": {
+    "publish": true,
+  },
+  "git": {
+    "tagName": "v${version}"
+  },
+  "github": {
+    "release": true
+  }
+}

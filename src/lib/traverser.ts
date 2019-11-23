@@ -28,7 +28,7 @@ export const buildObject = (
  * @param {string} a the values of the interface as string: ``` 'xtype: string \n\t ytype: number \n\t ...'```
  * @returns {string}
  */
-export const buildInterface = (i: string, a: string): string => `export type ${i} = {\n\t${a}\n}\n`
+export const buildInterface = (i: string, a: string): string => (i.length ? `export type ${i} = {\n\t${a}\n}\n` : '')
 
 /**
  * Takes a function with one parameter that returns a boolean and evaluates an array against that function to filter its values

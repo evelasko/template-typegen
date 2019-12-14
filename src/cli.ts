@@ -5,7 +5,7 @@ import yargs from 'yargs'
 import { recursePath, writeFile } from './lib/sfn'
 import { traverseFiles } from './lib/traverser'
 
-const input = yargs.usage('Usage: template-typegen <pathToTemplatesFolder> <pathToOutputFolder>').argv
+const input = yargs.usage('Usage: template-typegen <pathToTemplatesFolder> <pathToOutputFile>').argv
 
 if (!input._[0] && !input._[1]) {
     yargs.showHelp()
